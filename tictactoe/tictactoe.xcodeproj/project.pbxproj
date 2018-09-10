@@ -17,6 +17,8 @@
 		E8ED47342146FFA600C0ACD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8ED47322146FFA600C0ACD1 /* LaunchScreen.storyboard */; };
 		E8ED473F2146FFA600C0ACD1 /* tictactoeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED473E2146FFA600C0ACD1 /* tictactoeTests.swift */; };
 		E8ED474A2146FFA600C0ACD1 /* tictactoeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED47492146FFA600C0ACD1 /* tictactoeUITests.swift */; };
+		E8ED4758214707DB00C0ACD1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED4757214707DB00C0ACD1 /* Color.swift */; };
+		E8ED475C21470A3D00C0ACD1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED475B21470A3D00C0ACD1 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		E8ED47452146FFA600C0ACD1 /* tictactoeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tictactoeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8ED47492146FFA600C0ACD1 /* tictactoeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tictactoeUITests.swift; sourceTree = "<group>"; };
 		E8ED474B2146FFA600C0ACD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8ED4757214707DB00C0ACD1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Color.swift; path = ../../../../../../../Applications/Color.swift; sourceTree = "<group>"; };
+		E8ED475B21470A3D00C0ACD1 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				E8ED47292146FFA500C0ACD1 /* AppDelegate.swift */,
+				E8ED4757214707DB00C0ACD1 /* Color.swift */,
 				E8ED472B2146FFA500C0ACD1 /* PlayViewController.swift */,
+				E8ED475B21470A3D00C0ACD1 /* Network.swift */,
 				E8ED472D2146FFA500C0ACD1 /* Main.storyboard */,
 				E8ED47302146FFA600C0ACD1 /* Assets.xcassets */,
 				E8ED47322146FFA600C0ACD1 /* LaunchScreen.storyboard */,
@@ -378,6 +384,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8ED472C2146FFA500C0ACD1 /* PlayViewController.swift in Sources */,
+				E8ED4758214707DB00C0ACD1 /* Color.swift in Sources */,
+				E8ED475C21470A3D00C0ACD1 /* Network.swift in Sources */,
 				E8ED472A2146FFA500C0ACD1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
