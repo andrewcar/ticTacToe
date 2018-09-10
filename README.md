@@ -1,2 +1,2 @@
-# ticTacToe
-Tic Tac Toe for the DUMBOTRON
+# Tic Tac Toe
+for the DUMBOTRON
