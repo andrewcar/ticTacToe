@@ -19,6 +19,7 @@
 		E8ED474A2146FFA600C0ACD1 /* tictactoeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED47492146FFA600C0ACD1 /* tictactoeUITests.swift */; };
 		E8ED4758214707DB00C0ACD1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED4757214707DB00C0ACD1 /* Color.swift */; };
 		E8ED475C21470A3D00C0ACD1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED475B21470A3D00C0ACD1 /* Network.swift */; };
+		E8ED475E21471DD400C0ACD1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED475D21471DD400C0ACD1 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		E8ED474B2146FFA600C0ACD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8ED4757214707DB00C0ACD1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Color.swift; path = ../../../../../../../Applications/Color.swift; sourceTree = "<group>"; };
 		E8ED475B21470A3D00C0ACD1 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		E8ED475D21471DD400C0ACD1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				E8ED47292146FFA500C0ACD1 /* AppDelegate.swift */,
 				E8ED4757214707DB00C0ACD1 /* Color.swift */,
 				E8ED472B2146FFA500C0ACD1 /* PlayViewController.swift */,
+				E8ED475D21471DD400C0ACD1 /* LoginViewController.swift */,
 				E8ED475B21470A3D00C0ACD1 /* Network.swift */,
 				E8ED472D2146FFA500C0ACD1 /* Main.storyboard */,
 				E8ED47302146FFA600C0ACD1 /* Assets.xcassets */,
@@ -386,6 +389,7 @@
 				E8ED472C2146FFA500C0ACD1 /* PlayViewController.swift in Sources */,
 				E8ED4758214707DB00C0ACD1 /* Color.swift in Sources */,
 				E8ED475C21470A3D00C0ACD1 /* Network.swift in Sources */,
+				E8ED475E21471DD400C0ACD1 /* LoginViewController.swift in Sources */,
 				E8ED472A2146FFA500C0ACD1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
