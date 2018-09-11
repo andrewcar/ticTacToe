@@ -1,5 +1,5 @@
 //
-//  PersonViewController.swift
+//  NameViewController.swift
 //  tictactoe
 //
 //  Created by Andrew Carvajal on 9/10/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonViewController: UIViewController {
+class NameViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
