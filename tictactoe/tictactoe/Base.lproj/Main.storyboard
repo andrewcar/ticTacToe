@@ -95,7 +95,7 @@
                                                 <rect key="frame" x="246.5" y="0.0" width="128.5" height="128.5"/>
                                                 <color key="backgroundColor" red="0.33333333329999998" green="0.93725490199999995" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="ninthButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w2r-Py-3o2"/>
+                                                    <action selector="ninthButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ui5-nK-ahm"/>
                                                 </connections>
                                             </button>
                                         </subviews>
