@@ -24,6 +24,7 @@ class ColorViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        Network.shared.putBobRossOnTheDumbotron()
         Network.shared.updateFirestoreRefs()
         Network.shared.updateColorsListenerAndSingleton {
             self.updateColorViews()

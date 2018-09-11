@@ -10,6 +10,25 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
+    // entering by:
+    // being challenged
+    // having no one to challenge
+   
+    @IBOutlet var playerXImageView: UIImageView!
+    @IBOutlet var playerOImageView: UIImageView!
+    @IBOutlet var playerXLabel: UILabel!
+    @IBOutlet var playerOLabel: UILabel!
+    
+    @IBOutlet var firstButton: UIButton!
+    @IBOutlet var secondButton: UIButton!
+    @IBOutlet var thirdButton: UIButton!
+    @IBOutlet var fourthButton: UIButton!
+    @IBOutlet var fifthButton: UIButton!
+    @IBOutlet var sixthButton: UIButton!
+    @IBOutlet var seventhButton: UIButton!
+    @IBOutlet var eighthButton: UIButton!
+    @IBOutlet var ninthButton: UIButton!
+    
     var tenthPoint = Color.black
     
     var ninthPointA = Color.black
@@ -67,25 +86,80 @@ class PlayViewController: UIViewController {
     var ninthSquareRow1 = [Color.black, Color.black, Color.black]
     var ninthSquareRow2 = [Color.black, Color.black, Color.black]
     var ninthSquareRow3 = [Color.black, Color.black, Color.black]
+    
+    var currentGame: String?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        NotificationCenter.default.addObserver(self, selector: #selector(updateSquares), name: NSNotification.Name(rawValue: "CurrentGameUpdated"), object: nil)
-        Network.shared.updateCurrentGameListenerAndSingleton {
-            self.updateSquares()
+    @IBAction func setGreenToZero(_ sender: UIButton) {
+        Network.shared.setGreenToZero()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // prepare for challenger
+        if let challenger = Network.shared.challenger {
+            
+            // get image of challenger
+            
+            playerXLabel.text = challenger
+            
+            // get image of this player
+            guard let name = Network.shared.thisPersonsName else { return }
+            playerOLabel.text = name
+        } else {
+            
+            // wait for challengee
+            
+            // get image of this player
+            guard let name = Network.shared.thisPersonsName else { return }
+            playerXLabel.text = name
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        guard let name = Network.shared.thisPersonsName else { return }
+        Network.shared.updateWaitingRoom(name: name) {
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(someoneJoinedWaitingRoom), name: NSNotification.Name(rawValue: "SomeoneJoinedWaitingRoom"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSquares), name: NSNotification.Name(rawValue: "CurrentGameUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(gamesUpdated), name: NSNotification.Name(rawValue: "GamesUpdated"), object: nil)
+        
+        if let currentGame = currentGame {
+            Network.shared.updateCurrentGameSquaresListenerAndSingleton(game: currentGame) {
+            }
+            Network.shared.updateCurrentGameSymbolsListenerAndSingleton(game: currentGame) {
+            }
+        }
+    }
+    
+    @objc func gamesUpdated() {
+        guard !Network.shared.games.isEmpty else { return }
+        guard let myName = Network.shared.thisPersonsName else { return }
+        guard let enemyName = Network.shared.enemyName else { return }
+        for (game, value) in Network.shared.games {
+//            if game ==
+        }
+    }
+    
+    @objc func someoneJoinedWaitingRoom() {
+        guard let myName = Network.shared.thisPersonsName else { return }
+        guard let enemyName = Network.shared.enemyName else { return }
+        statusLabel.text = "\(enemyName) has joined"
+        Network.shared.getGameNumber(person1: myName, person2: enemyName) { (previousGameNumber) in
+            let newGameName = "\(myName)_vs_\(enemyName)_\(previousGameNumber + 1)"
+            self.currentGame = newGameName
+            Network.shared.updateGame(game: newGameName, completion: {
+            })
+        }
     }
     
     @objc func updateSquares() {
         guard let color = Network.shared.thisPersonsColor else { return }
 
-        for (square, played) in Network.shared.currentGame {
+        for (square, played) in Network.shared.currentGameSquares {
             switch square {
             case "square1":
                 switch played {
@@ -93,6 +167,7 @@ class PlayViewController: UIViewController {
                     firstSquareRow1 = [color, Color.black, color]
                     firstSquareRow2 = [Color.black, color, Color.black]
                     firstSquareRow3 = [color, Color.black, color]
+                    
                     self.updateDumboboard()
                 case "o":
                     firstSquareRow1 = [color, color, color]
@@ -235,47 +310,57 @@ class PlayViewController: UIViewController {
     }
 
     @IBAction func firstButtonTapped(_ sender: UIButton) {
-        Network.shared.updateSquare("square1", with: "x") {
+        // game is my name + who ever is other player
+        guard let currentGame = currentGame else { return }
+        Network.shared.updateSquare(game: currentGame, square: "square1", symbol: "x") {
         }
     }
     
     @IBAction func secondButtonTapped(_ sender: UIButton) {
-        Network.shared.updateSquare("square2", with: "x") {
+        guard let currentGame = currentGame else { return }
+        Network.shared.updateSquare(game: currentGame, square: "square2", symbol: "x") {
         }
     }
     
     @IBAction func thirdButtonTapped(_ sender: UIButton) {
-        Network.shared.updateSquare("square3", with: "x") {
+        guard let currentGame = currentGame else { return }
+        Network.shared.updateSquare(game: currentGame, square: "square3", symbol: "x") {
         }
     }
     
     @IBAction func fourthButtonTapped(_ sender: UIButton) {
-        Network.shared.updateSquare("square4", with: "x") {
+        guard let currentGame = currentGame else { return }
+        Network.shared.updateSquare(game: currentGame, square: "square4", symbol: "x") {
         }
     }
     
     @IBAction func fifthButtonTapped(_ sender: UIButton) {
-        Network.shared.updateSquare("square5", with: "x") {
+        guard let currentGame = currentGame else { return }
+        Network.shared.updateSquare(game: currentGame, square: "square5", symbol: "x") {
         }
     }
     
     @IBAction func sixthButtonTapped(_ sender: UIButton) {
-        Network.shared.updateSquare("square6", with: "x") {
+        guard let currentGame = currentGame else { return }
+        Network.shared.updateSquare(game: currentGame, square: "square6", symbol: "x") {
         }
     }
     
     @IBAction func seventhButtonTapped(_ sender: UIButton) {
-        Network.shared.updateSquare("square7", with: "x") {
+        guard let currentGame = currentGame else { return }
+        Network.shared.updateSquare(game: currentGame, square: "square7", symbol: "x") {
         }
     }
     
     @IBAction func eighthButtonTapped(_ sender: UIButton) {
-        Network.shared.updateSquare("square8", with: "x") {
+        guard let currentGame = currentGame else { return }
+        Network.shared.updateSquare(game: currentGame, square: "square8", symbol: "x") {
         }
     }
     
     @IBAction func ninthButtonTapped(_ sender: UIButton) {
-        Network.shared.updateSquare("square9", with: "x") {
+        guard let currentGame = currentGame else { return }
+        Network.shared.updateSquare(game: currentGame, square: "square9", symbol: "x") {
         }
     }
 }

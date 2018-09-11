@@ -24,6 +24,7 @@ class PersonViewController: UIViewController {
     func push() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "play")
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     
