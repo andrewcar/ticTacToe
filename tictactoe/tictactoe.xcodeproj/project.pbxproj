@@ -10,6 +10,7 @@
 		3A37ED4FA495AB25B78E163A /* Pods_tictactoeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84318CDCE6C6CB4B750B62AA /* Pods_tictactoeTests.framework */; };
 		8331491FFC03AAAB4DFFA755 /* Pods_tictactoeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E28E6A9CF68A5D86FE46E75F /* Pods_tictactoeUITests.framework */; };
 		C58A44E4E1F076CD6E930608 /* Pods_tictactoe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7645B8B38726076B6022E074 /* Pods_tictactoe.framework */; };
+		E8D06D77214735EA008A7A37 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D06D76214735EA008A7A37 /* PersonViewController.swift */; };
 		E8ED472A2146FFA500C0ACD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED47292146FFA500C0ACD1 /* AppDelegate.swift */; };
 		E8ED472C2146FFA500C0ACD1 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED472B2146FFA500C0ACD1 /* PlayViewController.swift */; };
 		E8ED472F2146FFA500C0ACD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8ED472D2146FFA500C0ACD1 /* Main.storyboard */; };
@@ -19,7 +20,8 @@
 		E8ED474A2146FFA600C0ACD1 /* tictactoeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED47492146FFA600C0ACD1 /* tictactoeUITests.swift */; };
 		E8ED4758214707DB00C0ACD1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED4757214707DB00C0ACD1 /* Color.swift */; };
 		E8ED475C21470A3D00C0ACD1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED475B21470A3D00C0ACD1 /* Network.swift */; };
-		E8ED475E21471DD400C0ACD1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED475D21471DD400C0ACD1 /* LoginViewController.swift */; };
+		E8ED475E21471DD400C0ACD1 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED475D21471DD400C0ACD1 /* ColorViewController.swift */; };
+		E8ED4760214725E100C0ACD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E8ED475F214725E100C0ACD1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		C44A3852E8FA557BC79891EE /* Pods-tictactoeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tictactoeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tictactoeTests/Pods-tictactoeTests.release.xcconfig"; sourceTree = "<group>"; };
 		D421F504E05F2E985F96BF87 /* Pods-tictactoeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tictactoeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tictactoeTests/Pods-tictactoeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E28E6A9CF68A5D86FE46E75F /* Pods_tictactoeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tictactoeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8D06D76214735EA008A7A37 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		E8ED47262146FFA500C0ACD1 /* tictactoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tictactoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8ED47292146FFA500C0ACD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8ED472B2146FFA500C0ACD1 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +67,8 @@
 		E8ED474B2146FFA600C0ACD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8ED4757214707DB00C0ACD1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Color.swift; path = ../../../../../../../Applications/Color.swift; sourceTree = "<group>"; };
 		E8ED475B21470A3D00C0ACD1 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		E8ED475D21471DD400C0ACD1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E8ED475D21471DD400C0ACD1 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		E8ED475F214725E100C0ACD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,13 +149,15 @@
 			children = (
 				E8ED47292146FFA500C0ACD1 /* AppDelegate.swift */,
 				E8ED4757214707DB00C0ACD1 /* Color.swift */,
+				E8ED475D21471DD400C0ACD1 /* ColorViewController.swift */,
+				E8D06D76214735EA008A7A37 /* PersonViewController.swift */,
 				E8ED472B2146FFA500C0ACD1 /* PlayViewController.swift */,
-				E8ED475D21471DD400C0ACD1 /* LoginViewController.swift */,
 				E8ED475B21470A3D00C0ACD1 /* Network.swift */,
 				E8ED472D2146FFA500C0ACD1 /* Main.storyboard */,
 				E8ED47302146FFA600C0ACD1 /* Assets.xcassets */,
 				E8ED47322146FFA600C0ACD1 /* LaunchScreen.storyboard */,
 				E8ED47352146FFA600C0ACD1 /* Info.plist */,
+				E8ED475F214725E100C0ACD1 /* GoogleService-Info.plist */,
 			);
 			path = tictactoe;
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8ED47342146FFA600C0ACD1 /* LaunchScreen.storyboard in Resources */,
+				E8ED4760214725E100C0ACD1 /* GoogleService-Info.plist in Resources */,
 				E8ED47312146FFA600C0ACD1 /* Assets.xcassets in Resources */,
 				E8ED472F2146FFA500C0ACD1 /* Main.storyboard in Resources */,
 			);
@@ -366,12 +373,28 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-tictactoe/Pods-tictactoe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,9 +410,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8ED472C2146FFA500C0ACD1 /* PlayViewController.swift in Sources */,
+				E8D06D77214735EA008A7A37 /* PersonViewController.swift in Sources */,
 				E8ED4758214707DB00C0ACD1 /* Color.swift in Sources */,
 				E8ED475C21470A3D00C0ACD1 /* Network.swift in Sources */,
-				E8ED475E21471DD400C0ACD1 /* LoginViewController.swift in Sources */,
+				E8ED475E21471DD400C0ACD1 /* ColorViewController.swift in Sources */,
 				E8ED472A2146FFA500C0ACD1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
