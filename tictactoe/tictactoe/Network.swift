@@ -106,15 +106,15 @@ class Network: NSObject {
             if !squaresSnapshot.isEmpty {
                 guard let squaresDocument = squaresSnapshot.documents.first else { return }
                 let squaresDocumentData = squaresDocument.data()
-                guard let square1 = squaresDocumentData["squares1"] as? [String: String] else { return }
-                guard let square2 = squaresDocumentData["squares2"] as? [String: String] else { return }
-                guard let square3 = squaresDocumentData["squares3"] as? [String: String] else { return }
-                guard let square4 = squaresDocumentData["squares4"] as? [String: String] else { return }
-                guard let square5 = squaresDocumentData["squares5"] as? [String: String] else { return }
-                guard let square6 = squaresDocumentData["squares6"] as? [String: String] else { return }
-                guard let square7 = squaresDocumentData["squares7"] as? [String: String] else { return }
-                guard let square8 = squaresDocumentData["squares8"] as? [String: String] else { return }
-                guard let square9 = squaresDocumentData["squares9"] as? [String: String] else { return }
+                guard let square1 = squaresDocumentData["square1"] as? [String: String] else { return }
+                guard let square2 = squaresDocumentData["square2"] as? [String: String] else { return }
+                guard let square3 = squaresDocumentData["square3"] as? [String: String] else { return }
+                guard let square4 = squaresDocumentData["square4"] as? [String: String] else { return }
+                guard let square5 = squaresDocumentData["square5"] as? [String: String] else { return }
+                guard let square6 = squaresDocumentData["square6"] as? [String: String] else { return }
+                guard let square7 = squaresDocumentData["square7"] as? [String: String] else { return }
+                guard let square8 = squaresDocumentData["square8"] as? [String: String] else { return }
+                guard let square9 = squaresDocumentData["square9"] as? [String: String] else { return }
                 self.currentGameSquares = ["square1": square1, "square2": square2, "square3": square3, "square4": square4, "square5": square5, "square6": square6, "square7": square7, "square8": square8, "square9": square9]
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CurrentGameSquaresUpdated"), object: nil)
                 completion()
@@ -204,72 +204,19 @@ class Network: NSObject {
 //    }
     
     func resetGame(completion: @escaping () -> Void) {
+        updateFirestoreRefs()
         gamesCollectionRef.document("Andrew_vs_Bob_1").collection("squares").getDocuments { (snapshot, error) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
                 guard let snapshot = snapshot else { return }
-                if !snapshot.documents.isEmpty {
-                    for document in snapshot.documents {
-                        switch document.documentID {
-                        case "square1":
-                            self.gamesCollectionRef.document("Andrew_vs_Bob_1").collection("squares").document(document.documentID).setData(["square1": "0"], completion: { (error) in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                }
-                            })
-                        case "square2":
-                            self.gamesCollectionRef.document("Andrew_vs_Bob_1").collection("squares").document(document.documentID).setData(["square2": "0"], completion: { (error) in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                }
-                            })
-                        case "square3":
-                            self.gamesCollectionRef.document("Andrew_vs_Bob_1").collection("squares").document(document.documentID).setData(["square3": "0"], completion: { (error) in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                }
-                            })
-                        case "square4":
-                            self.gamesCollectionRef.document("Andrew_vs_Bob_1").collection("squares").document(document.documentID).setData(["square4": "0"], completion: { (error) in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                }
-                            })
-                        case "square5":
-                            self.gamesCollectionRef.document("Andrew_vs_Bob_1").collection("squares").document(document.documentID).setData(["square5": "0"], completion: { (error) in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                }
-                            })
-                        case "square6":
-                            self.gamesCollectionRef.document("Andrew_vs_Bob_1").collection("squares").document(document.documentID).setData(["square6": "0"], completion: { (error) in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                }
-                            })
-                        case "square7":
-                            self.gamesCollectionRef.document("Andrew_vs_Bob_1").collection("squares").document(document.documentID).setData(["square7": "0"], completion: { (error) in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                }
-                            })
-                        case "square8":
-                            self.gamesCollectionRef.document("Andrew_vs_Bob_1").collection("squares").document(document.documentID).setData(["square8": "0"], completion: { (error) in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                }
-                            })
-                        case "square9":
-                            self.gamesCollectionRef.document("Andrew_vs_Bob_1").collection("squares").document(document.documentID).setData(["square9": "0"], completion: { (error) in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                }
-                            })
-                        default: break
-                        }
+                guard let squares = snapshot.documents.first else { return }
+                let empty = ["0": "0"]
+                self.gamesCollectionRef.document("Andrew_vs_Bob_1").collection("squares").document(squares.documentID).setData(["square1": empty, "square2": empty, "square3": empty, "square4": empty, "square5": empty, "square6": empty, "square7": empty, "square8": empty, "square9": empty], completion: { (error) in
+                    if let error = error {
+                        print(error.localizedDescription)
                     }
-                }
+                })
             }
         }
     }
@@ -282,7 +229,7 @@ class Network: NSObject {
                 guard let snapshot = snapshot else { return }
                 guard let document = snapshot.documents.first else { return }
                 let documentID = document.documentID
-                self.gamesCollectionRef.document(game).collection("squares").document(documentID).updateData([square: symbol], completion: { (error) in
+                self.gamesCollectionRef.document(game).collection("squares").document(documentID).updateData([square: [symbol: color]], completion: { (error) in
                     if let error = error {
                         print(error.localizedDescription)
                     } else {
