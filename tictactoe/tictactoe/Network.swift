@@ -117,6 +117,11 @@ class Network: NSObject {
                     if let error = error {
                         print(error.localizedDescription)
                     }
+                    var colors = [String]()
+                    for _ in 1...100 {
+                        colors.append(Color.black)
+                    }
+                    self.set(colors: colors)
                 })
             }
         }

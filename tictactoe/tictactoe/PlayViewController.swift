@@ -123,6 +123,12 @@ class PlayViewController: UIViewController {
         }
     }
     
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        Network.shared.resetGame {
+            self.resetPhoneboard()
+        }
+    }
+    
     func resetPhoneboard() {
         firstButton.setTitle(" ", for: .normal)
         secondButton.setTitle(" ", for: .normal)
@@ -334,7 +340,7 @@ class PlayViewController: UIViewController {
         let fifthRow = [ninthPointB] + fourthSquareRow1 + [Color.white, fifthSquareRow1[1], fifthSquareRow1[2]] + sixthSquareRow1
         let sixthRow = [eighthPointB] + fourthSquareRow2 + [fifthSquareRow2[0], Color.white, fifthSquareRow2[2]] + sixthSquareRow2
         let seventhRow = [seventhPointB] + fourthSquareRow3 + [fifthSquareRow3[0], fifthSquareRow3[1], Color.white] + sixthSquareRow3
-        let eighthRow = [ninthPointB] + seventhSquareRow1 + eighthSquareRow1 + [Color.white, ninthSquareRow1[0], ninthSquareRow1[1]]
+        let eighthRow = [ninthPointB] + seventhSquareRow1 + eighthSquareRow1 + [Color.white, ninthSquareRow1[1], ninthSquareRow1[2]]
         let ninthRow = [eighthPointB] + seventhSquareRow2 + eighthSquareRow2 + [ninthSquareRow2[0], Color.white, ninthSquareRow2[2]]
         let tenthRow = [seventhPointB] + seventhSquareRow3 + eighthSquareRow3 + [ninthSquareRow3[0], ninthSquareRow3[1], Color.white]
         let x = firstRow + secondRow + thirdRow + fourthRow + fifthRow + sixthRow + seventhRow + eighthRow + ninthRow + tenthRow
@@ -368,7 +374,7 @@ class PlayViewController: UIViewController {
                         firstSquareRow3 = [color, Color.black, color]
                         firstButton.setTitle("x", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     case "o":
                         firstSquareRow1 = [color, color, color]
@@ -376,7 +382,7 @@ class PlayViewController: UIViewController {
                         firstSquareRow3 = [color, color, color]
                         firstButton.setTitle("o", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     default: break
                     }
@@ -390,7 +396,7 @@ class PlayViewController: UIViewController {
                         secondSquareRow3 = [color, Color.black, color]
                         secondButton.setTitle("x", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     case "o":
                         secondSquareRow1 = [color, color, color]
@@ -398,7 +404,7 @@ class PlayViewController: UIViewController {
                         secondSquareRow3 = [color, color, color]
                         secondButton.setTitle("o", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     default: break
                     }
@@ -412,7 +418,7 @@ class PlayViewController: UIViewController {
                         thirdSquareRow3 = [color, Color.black, color]
                         thirdButton.setTitle("x", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     case "o":
                         thirdSquareRow1 = [color, color, color]
@@ -420,7 +426,7 @@ class PlayViewController: UIViewController {
                         thirdSquareRow3 = [color, color, color]
                         thirdButton.setTitle("o", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     default: break
                     }
@@ -434,7 +440,7 @@ class PlayViewController: UIViewController {
                         fourthSquareRow3 = [color, Color.black, color]
                         fourthButton.setTitle("x", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     case "o":
                         fourthSquareRow1 = [color, color, color]
@@ -442,7 +448,7 @@ class PlayViewController: UIViewController {
                         fourthSquareRow3 = [color, color, color]
                         fourthButton.setTitle("o", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     default: break
                     }
@@ -456,7 +462,7 @@ class PlayViewController: UIViewController {
                         fifthSquareRow3 = [color, Color.black, color]
                         fifthButton.setTitle("x", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     case "o":
                         fifthSquareRow1 = [color, color, color]
@@ -464,7 +470,7 @@ class PlayViewController: UIViewController {
                         fifthSquareRow3 = [color, color, color]
                         fifthButton.setTitle("o", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     default: break
                     }
@@ -478,7 +484,7 @@ class PlayViewController: UIViewController {
                         sixthSquareRow3 = [color, Color.black, color]
                         sixthButton.setTitle("x", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     case "o":
                         sixthSquareRow1 = [color, color, color]
@@ -486,7 +492,7 @@ class PlayViewController: UIViewController {
                         sixthSquareRow3 = [color, color, color]
                         sixthButton.setTitle("o", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     default: break
                     }
@@ -500,7 +506,7 @@ class PlayViewController: UIViewController {
                         seventhSquareRow3 = [color, Color.black, color]
                         seventhButton.setTitle("x", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     case "o":
                         seventhSquareRow1 = [color, color, color]
@@ -508,7 +514,7 @@ class PlayViewController: UIViewController {
                         seventhSquareRow3 = [color, color, color]
                         seventhButton.setTitle("o", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     default: break
                     }
@@ -522,7 +528,7 @@ class PlayViewController: UIViewController {
                         eighthSquareRow3 = [color, Color.black, color]
                         eighthButton.setTitle("x", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     case "o":
                         eighthSquareRow1 = [color, color, color]
@@ -530,7 +536,7 @@ class PlayViewController: UIViewController {
                         eighthSquareRow3 = [color, color, color]
                         eighthButton.setTitle("o", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     default: break
                     }
@@ -544,7 +550,7 @@ class PlayViewController: UIViewController {
                         ninthSquareRow3 = [color, Color.black, color]
                         ninthButton.setTitle("x", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     case "o":
                         ninthSquareRow1 = [color, color, color]
@@ -552,7 +558,7 @@ class PlayViewController: UIViewController {
                         ninthSquareRow3 = [color, color, color]
                         ninthButton.setTitle("o", for: .normal)
                         self.updateDumboboard()
-                        guard !xWins && !oWins else { continue }
+//                        guard !xWins && !oWins else { continue }
                         checkForWinner()
                     default: break
                     }
