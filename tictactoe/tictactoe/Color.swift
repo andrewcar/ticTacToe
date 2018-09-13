@@ -20,4 +20,5 @@ struct Color {
     static let pink = "#D980FA"
     static let magenta = "#B53471"
     static let black = "#000000"
+    static let white = "#FFFFFF"
 }

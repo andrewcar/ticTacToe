@@ -151,6 +151,7 @@ class PlayViewController: UIViewController {
         if one.first!.key == "x" && two.first!.key == "x" && three.first!.key == "x" {
             print("WINNER! X IS GLORIOUS")
             xWins = true
+            showFirstRowWin()
         } else if one.first!.key == "o" && two.first!.key == "o" && three.first!.key == "o" {
             print("WINNER! MAKE YOUR O FACE")
             oWins = true
@@ -218,6 +219,126 @@ class PlayViewController: UIViewController {
             print("WINNER! MAKE YOUR O FACE")
             oWins = true
         }
+    }
+    
+    func showFirstRowWin() {
+        let firstRow = [tenthPoint, ninthPointA, eighthPointA, seventhPointA, sixthPointA, fifthPointA, fourthPointA, thirdPointA, secondPointA, firstPointA]
+        let secondRow = [ninthPointB] + firstSquareRow1 + secondSquareRow1 + thirdSquareRow1
+        let thirdRow = [eighthPointB, Color.white, Color.white, Color.white, Color.white, Color.white, Color.white, Color.white, Color.white, Color.white]
+        let fourthRow = [seventhPointB] + firstSquareRow3 + secondSquareRow3 + thirdSquareRow3
+        let fifthRow = [ninthPointB] + fourthSquareRow1 + fifthSquareRow1 + sixthSquareRow1
+        let sixthRow = [eighthPointB] + fourthSquareRow2 + fifthSquareRow2 + sixthSquareRow2
+        let seventhRow = [seventhPointB] + fourthSquareRow3 + fifthSquareRow3 + sixthSquareRow3
+        let eighthRow = [ninthPointB] + seventhSquareRow1 + eighthSquareRow1 + ninthSquareRow1
+        let ninthRow = [eighthPointB] + seventhSquareRow2 + eighthSquareRow2 + ninthSquareRow2
+        let tenthRow = [seventhPointB] + seventhSquareRow3 + eighthSquareRow3 + ninthSquareRow3
+        let x = firstRow + secondRow + thirdRow + fourthRow + fifthRow + sixthRow + seventhRow + eighthRow + ninthRow + tenthRow
+        Network.shared.set(colors: x)
+    }
+    
+    func showSecondRowWin() {
+        let firstRow = [tenthPoint, ninthPointA, eighthPointA, seventhPointA, sixthPointA, fifthPointA, fourthPointA, thirdPointA, secondPointA, firstPointA]
+        let secondRow = [ninthPointB] + firstSquareRow1 + secondSquareRow1 + thirdSquareRow1
+        let thirdRow = [eighthPointB] + firstSquareRow2 + secondSquareRow2 + thirdSquareRow2
+        let fourthRow = [seventhPointB] + firstSquareRow3 + secondSquareRow3 + thirdSquareRow3
+        let fifthRow = [ninthPointB] + fourthSquareRow1 + fifthSquareRow1 + sixthSquareRow1
+        let sixthRow = [eighthPointB, Color.white, Color.white, Color.white, Color.white, Color.white, Color.white, Color.white, Color.white, Color.white]
+        let seventhRow = [seventhPointB] + fourthSquareRow3 + fifthSquareRow3 + sixthSquareRow3
+        let eighthRow = [ninthPointB] + seventhSquareRow1 + eighthSquareRow1 + ninthSquareRow1
+        let ninthRow = [eighthPointB] + seventhSquareRow2 + eighthSquareRow2 + ninthSquareRow2
+        let tenthRow = [seventhPointB] + seventhSquareRow3 + eighthSquareRow3 + ninthSquareRow3
+        let x = firstRow + secondRow + thirdRow + fourthRow + fifthRow + sixthRow + seventhRow + eighthRow + ninthRow + tenthRow
+        Network.shared.set(colors: x)
+    }
+    
+    func showThirdRowWin() {
+        let firstRow = [tenthPoint, ninthPointA, eighthPointA, seventhPointA, sixthPointA, fifthPointA, fourthPointA, thirdPointA, secondPointA, firstPointA]
+        let secondRow = [ninthPointB] + firstSquareRow1 + secondSquareRow1 + thirdSquareRow1
+        let thirdRow = [eighthPointB] + firstSquareRow2 + secondSquareRow2 + thirdSquareRow2
+        let fourthRow = [seventhPointB] + firstSquareRow3 + secondSquareRow3 + thirdSquareRow3
+        let fifthRow = [ninthPointB] + fourthSquareRow1 + fifthSquareRow1 + sixthSquareRow1
+        let sixthRow = [eighthPointB] + fourthSquareRow2 + fifthSquareRow2 + sixthSquareRow2
+        let seventhRow = [seventhPointB] + fourthSquareRow3 + fifthSquareRow3 + sixthSquareRow3
+        let eighthRow = [ninthPointB] + seventhSquareRow1 + eighthSquareRow1 + ninthSquareRow1
+        let ninthRow = [eighthPointB, Color.white, Color.white, Color.white, Color.white, Color.white, Color.white, Color.white, Color.white, Color.white]
+        let tenthRow = [seventhPointB] + seventhSquareRow3 + eighthSquareRow3 + ninthSquareRow3
+        let x = firstRow + secondRow + thirdRow + fourthRow + fifthRow + sixthRow + seventhRow + eighthRow + ninthRow + tenthRow
+        Network.shared.set(colors: x)
+    }
+    
+    func showFirstColumnWin() {
+        let firstRow = [tenthPoint, ninthPointA, eighthPointA, seventhPointA, sixthPointA, fifthPointA, fourthPointA, thirdPointA, secondPointA, firstPointA]
+        let secondRow = [ninthPointB] + [firstSquareRow1[0], Color.white, firstSquareRow1[2]] + secondSquareRow1 + thirdSquareRow1
+        let thirdRow = [eighthPointB] + [firstSquareRow2[0], Color.white, firstSquareRow2[2]] + secondSquareRow2 + thirdSquareRow2
+        let fourthRow = [seventhPointB] + [firstSquareRow3[0], Color.white, firstSquareRow3[2]] + secondSquareRow3 + thirdSquareRow3
+        let fifthRow = [ninthPointB] + [fourthSquareRow1[0], Color.white, fourthSquareRow1[2]] + fifthSquareRow1 + sixthSquareRow1
+        let sixthRow = [eighthPointB] + [fourthSquareRow2[0], Color.white, fourthSquareRow2[2]] + fifthSquareRow2 + sixthSquareRow2
+        let seventhRow = [seventhPointB] + [fourthSquareRow3[0], Color.white, fourthSquareRow3[2]] + fifthSquareRow3 + sixthSquareRow3
+        let eighthRow = [ninthPointB] + [seventhSquareRow1[0], Color.white, seventhSquareRow1[2]] + eighthSquareRow1 + ninthSquareRow1
+        let ninthRow = [eighthPointB] + [seventhSquareRow2[0], Color.white, seventhSquareRow2[2]] + eighthSquareRow2 + ninthSquareRow2
+        let tenthRow = [seventhPointB] + [seventhSquareRow3[0], Color.white, seventhSquareRow3[2]] + eighthSquareRow3 + ninthSquareRow3
+        let x = firstRow + secondRow + thirdRow + fourthRow + fifthRow + sixthRow + seventhRow + eighthRow + ninthRow + tenthRow
+        Network.shared.set(colors: x)
+    }
+    
+    func showSecondColumnWin() {
+        let firstRow = [tenthPoint, ninthPointA, eighthPointA, seventhPointA, sixthPointA, fifthPointA, fourthPointA, thirdPointA, secondPointA, firstPointA]
+        let secondRow = [ninthPointB] + firstSquareRow1 + [secondSquareRow1[0], Color.white, secondSquareRow1[2]] + thirdSquareRow1
+        let thirdRow = [eighthPointB] + firstSquareRow2 + [secondSquareRow2[0], Color.white, secondSquareRow2[2]] + thirdSquareRow2
+        let fourthRow = [seventhPointB] + firstSquareRow3 + [secondSquareRow3[0], Color.white, secondSquareRow3[2]] + thirdSquareRow3
+        let fifthRow = [ninthPointB] + fourthSquareRow1 + [fifthSquareRow1[0], Color.white, fifthSquareRow1[2]] + sixthSquareRow1
+        let sixthRow = [eighthPointB] + fourthSquareRow2 + [fifthSquareRow2[0], Color.white, fifthSquareRow2[2]] + sixthSquareRow2
+        let seventhRow = [seventhPointB] + fourthSquareRow3 + [fifthSquareRow3[0], Color.white, fifthSquareRow3[2]] + sixthSquareRow3
+        let eighthRow = [ninthPointB] + seventhSquareRow1 + [eighthSquareRow1[0], Color.white, eighthSquareRow1[2]] + ninthSquareRow1
+        let ninthRow = [eighthPointB] + seventhSquareRow2 + [eighthSquareRow2[0], Color.white, eighthSquareRow2[2]] + ninthSquareRow2
+        let tenthRow = [seventhPointB] + seventhSquareRow3 + [eighthSquareRow3[0], Color.white, eighthSquareRow3[2]] + ninthSquareRow3
+        let x = firstRow + secondRow + thirdRow + fourthRow + fifthRow + sixthRow + seventhRow + eighthRow + ninthRow + tenthRow
+        Network.shared.set(colors: x)
+    }
+    
+    func showThirdColumnWin() {
+        let firstRow = [tenthPoint, ninthPointA, eighthPointA, seventhPointA, sixthPointA, fifthPointA, fourthPointA, thirdPointA, secondPointA, firstPointA]
+        let secondRow = [ninthPointB] + firstSquareRow1 + secondSquareRow1 + [thirdSquareRow1[0], Color.white, thirdSquareRow1[2]]
+        let thirdRow = [eighthPointB] + firstSquareRow2 + secondSquareRow2 + [thirdSquareRow2[0], Color.white, thirdSquareRow2[2]]
+        let fourthRow = [seventhPointB] + firstSquareRow3 + secondSquareRow3 + [thirdSquareRow3[0], Color.white, thirdSquareRow3[2]]
+        let fifthRow = [ninthPointB] + fourthSquareRow1 + fifthSquareRow1 + [sixthSquareRow1[0], Color.white, sixthSquareRow1[2]]
+        let sixthRow = [eighthPointB] + fourthSquareRow2 + fifthSquareRow2 + [sixthSquareRow2[0], Color.white, sixthSquareRow2[2]]
+        let seventhRow = [seventhPointB] + fourthSquareRow3 + fifthSquareRow3 + [sixthSquareRow3[0], Color.white, sixthSquareRow3[2]]
+        let eighthRow = [ninthPointB] + seventhSquareRow1 + eighthSquareRow1 + [ninthSquareRow1[0], Color.white, ninthSquareRow1[2]]
+        let ninthRow = [eighthPointB] + seventhSquareRow2 + eighthSquareRow2 + [ninthSquareRow2[0], Color.white, ninthSquareRow2[2]]
+        let tenthRow = [seventhPointB] + seventhSquareRow3 + eighthSquareRow3 + [ninthSquareRow3[0], Color.white, ninthSquareRow3[2]]
+        let x = firstRow + secondRow + thirdRow + fourthRow + fifthRow + sixthRow + seventhRow + eighthRow + ninthRow + tenthRow
+        Network.shared.set(colors: x)
+    }
+    
+    func showBackslashWin() {
+        let firstRow = [tenthPoint, ninthPointA, eighthPointA, seventhPointA, sixthPointA, fifthPointA, fourthPointA, thirdPointA, secondPointA, firstPointA]
+        let secondRow = [ninthPointB] + [Color.white, firstSquareRow1[1], firstSquareRow1[2]] + secondSquareRow1 + thirdSquareRow1
+        let thirdRow = [eighthPointB] + [firstSquareRow2[0], Color.white, firstSquareRow2[2]] + secondSquareRow2 + thirdSquareRow2
+        let fourthRow = [seventhPointB] + [firstSquareRow3[0], firstSquareRow3[1], Color.white] + secondSquareRow3 + thirdSquareRow3
+        let fifthRow = [ninthPointB] + fourthSquareRow1 + [Color.white, fifthSquareRow1[1], fifthSquareRow1[2]] + sixthSquareRow1
+        let sixthRow = [eighthPointB] + fourthSquareRow2 + [fifthSquareRow2[0], Color.white, fifthSquareRow2[2]] + sixthSquareRow2
+        let seventhRow = [seventhPointB] + fourthSquareRow3 + [fifthSquareRow3[0], fifthSquareRow3[1], Color.white] + sixthSquareRow3
+        let eighthRow = [ninthPointB] + seventhSquareRow1 + eighthSquareRow1 + [Color.white, ninthSquareRow1[0], ninthSquareRow1[1]]
+        let ninthRow = [eighthPointB] + seventhSquareRow2 + eighthSquareRow2 + [ninthSquareRow2[0], Color.white, ninthSquareRow2[2]]
+        let tenthRow = [seventhPointB] + seventhSquareRow3 + eighthSquareRow3 + [ninthSquareRow3[0], ninthSquareRow3[1], Color.white]
+        let x = firstRow + secondRow + thirdRow + fourthRow + fifthRow + sixthRow + seventhRow + eighthRow + ninthRow + tenthRow
+        Network.shared.set(colors: x)
+    }
+    
+    func showForwardSlashWin() {
+        let firstRow = [tenthPoint, ninthPointA, eighthPointA, seventhPointA, sixthPointA, fifthPointA, fourthPointA, thirdPointA, secondPointA, firstPointA]
+        let secondRow = [ninthPointB] + firstSquareRow1 + secondSquareRow1 + [thirdSquareRow1[0], thirdSquareRow1[1], Color.white]
+        let thirdRow = [eighthPointB] + firstSquareRow2 + secondSquareRow2 + [thirdSquareRow2[0], Color.white, thirdSquareRow2[2]]
+        let fourthRow = [seventhPointB] + firstSquareRow3 + secondSquareRow3 + [Color.white, thirdSquareRow3[1], thirdSquareRow3[2]]
+        let fifthRow = [ninthPointB] + fourthSquareRow1 + [fifthSquareRow1[0], fifthSquareRow1[1], Color.white] + sixthSquareRow1
+        let sixthRow = [eighthPointB] + fourthSquareRow2 + [fifthSquareRow2[0], Color.white, fifthSquareRow2[2]] + sixthSquareRow2
+        let seventhRow = [seventhPointB] + fourthSquareRow3 + [Color.white, fifthSquareRow3[1], fifthSquareRow3[2]] + sixthSquareRow3
+        let eighthRow = [ninthPointB] + [seventhSquareRow1[0], seventhSquareRow1[1], Color.white] + eighthSquareRow1 + ninthSquareRow1
+        let ninthRow = [eighthPointB] + [seventhSquareRow2[0], Color.white, seventhSquareRow2[2]] + eighthSquareRow2 + ninthSquareRow2
+        let tenthRow = [seventhPointB] + [Color.white, seventhSquareRow3[1], seventhSquareRow3[2]] + eighthSquareRow3 + ninthSquareRow3
+        let x = firstRow + secondRow + thirdRow + fourthRow + fifthRow + sixthRow + seventhRow + eighthRow + ninthRow + tenthRow
+        Network.shared.set(colors: x)
     }
     
     @objc func updateSquares() {
