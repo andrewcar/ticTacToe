@@ -155,69 +155,84 @@ class PlayViewController: UIViewController {
         } else if one.first!.key == "o" && two.first!.key == "o" && three.first!.key == "o" {
             print("WINNER! MAKE YOUR O FACE")
             oWins = true
+            showFirstRowWin()
         }
         
         // second row
         if four.first!.key == "x" && five.first!.key == "x" && six.first!.key == "x" {
             print("WINNER! X IS GLORIOUS")
             xWins = true
+            showSecondRowWin()
         } else if four.first!.key == "o" && five.first!.key == "o" && six.first!.key == "o" {
             print("WINNER! MAKE YOUR O FACE")
             oWins = true
+            showSecondRowWin()
         }
         
         // third row
         if seven.first!.key == "x" && eight.first!.key == "x" && nine.first!.key == "x" {
             print("WINNER! X IS GLORIOUS")
             xWins = true
+            showThirdRowWin()
         } else if seven.first!.key == "o" && eight.first!.key == "o" && nine.first!.key == "o" {
             print("WINNER! MAKE YOUR O FACE")
             oWins = true
+            showThirdRowWin()
         }
         
         // first column
         if one.first!.key == "x" && four.first!.key == "x" && seven.first!.key == "x" {
             print("WINNER! X IS GLORIOUS")
             xWins = true
+            showFirstColumnWin()
         } else if one.first!.key == "o" && four.first!.key == "o" && seven.first!.key == "o" {
             print("WINNER! MAKE YOUR O FACE")
             oWins = true
+            showFirstColumnWin()
         }
         
         // second column
         if two.first!.key == "x" && five.first!.key == "x" && eight.first!.key == "x" {
             print("WINNER! X IS GLORIOUS")
             xWins = true
+            showSecondColumnWin()
         } else if two.first!.key == "o" && five.first!.key == "o" && eight.first!.key == "o" {
             print("WINNER! MAKE YOUR O FACE")
             oWins = true
+            showSecondColumnWin()
         }
         
         // third column
         if three.first!.key == "x" && six.first!.key == "x" && nine.first!.key == "x" {
             print("WINNER! X IS GLORIOUS")
             xWins = true
+            showThirdColumnWin()
         } else if three.first!.key == "o" && six.first!.key == "o" && nine.first!.key == "o" {
             print("WINNER! MAKE YOUR O FACE")
             oWins = true
+            showThirdColumnWin()
         }
         
         // backslash
         if one.first!.key == "x" && five.first!.key == "x" && nine.first!.key == "x" {
             print("WINNER! X IS GLORIOUS")
             xWins = true
+            showBackslashWin()
         } else if one.first!.key == "o" && five.first!.key == "o" && nine.first!.key == "o" {
             print("WINNER! MAKE YOUR O FACE")
             oWins = true
+            showBackslashWin()
         }
         
         // forward slash
         if three.first!.key == "x" && five.first!.key == "x" && seven.first!.key == "x" {
             print("WINNER! X IS GLORIOUS")
             xWins = true
+            showForwardSlashWin()
         } else if three.first!.key == "o" && five.first!.key == "o" && seven.first!.key == "o" {
             print("WINNER! MAKE YOUR O FACE")
             oWins = true
+            showForwardSlashWin()
         }
     }
     
