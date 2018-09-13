@@ -75,25 +75,7 @@ class Network: NSObject {
         peopleCollectionRef = Firestore.firestore().collection("people")
         colorsCollectionRef = Firestore.firestore().collection("colors")
         gamesCollectionRef = Firestore.firestore().collection("games")
-//        waitingRoomCollectionRef = Firestore.firestore().collection("waitingRoom")
     }
-    
-//    func updateGamesListenerAndSingleton(completion: @escaping () -> Void) {
-//        updateFirestoreRefs()
-//        gamesListener = gamesCollectionRef.addSnapshotListener({ (snapshot, error) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            } else {
-//                guard let snapshot = snapshot else { return }
-//                if !snapshot.documents.isEmpty {
-//                    for document in snapshot.documents {
-//                        self.games[document.documentID] = "0"
-//                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "GamesUpdated"), object: nil)
-//                    }
-//                }
-//            }
-//        })
-//    }
     
     func updateCurrentGameSquaresListenerAndSingleton(game: String, completion: @escaping () -> Void) {
         updateFirestoreRefs()
@@ -121,87 +103,6 @@ class Network: NSObject {
             }
         })
     }
-    
-//    func updateCurrentGameSymbolsListenerAndSingleton(game: String, completion: @escaping () -> Void) {
-//        updateFirestoreRefs()
-//        currentGameSymbolsListener = gamesCollectionRef.document(game).collection("symbols").addSnapshotListener({ (symbolsSnapshot, error) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            }
-//            guard let symbolsSnapshot = symbolsSnapshot else { return }
-//
-//            if !symbolsSnapshot.isEmpty {
-//                guard let symbolsDocument = symbolsSnapshot.documents.first else { return }
-//                let symbolsDocumentData = symbolsDocument.data()
-//                guard let playerX = symbolsDocumentData["x"] as? String else { return }
-//                guard let playerO = symbolsDocumentData["o"] as? String else { return }
-//                self.currentGameSymbols = ["x": playerX, "o": playerO]
-//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CurrentGameSymbolsUpdated"), object: nil)
-//                completion()
-//            }
-//        })
-//    }
-    
-//    func updateWaitingRoomListenerAndSingleton(completion: @escaping () -> Void) {
-//        updateFirestoreRefs()
-//        waitingRoomCollectionRef.getDocuments { (snapshot, error) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            } else {
-//                guard let snapshot = snapshot else { return }
-//                if !snapshot.documents.isEmpty {
-//                    for personDocument in snapshot.documents {
-//                        let personDocumentData = personDocument.data()
-//                        guard let name = personDocumentData["name"] as? String else { return }
-//                        guard let myName = self.thisPersonsName else { return }
-//                        if myName != self.enemyName {
-//                            self.enemyName = name
-//                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SomeoneJoinedWaitingRoom"), object: nil)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-//
-//    func updateWaitingRoom(name: String, completion: @escaping () -> Void) {
-//        waitingRoomCollectionRef.document(name).setData(["nothing": "nothing"]) { (error) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            } else {
-//                print("\(name) joined the waiting room")
-//            }
-//        }
-//    }
-    
-//    func getGameNumber(person1: String, person2: String, completion: @escaping (Int) -> Void) {
-//        gamesCollectionRef.getDocuments { (snapshot, error) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            } else {
-//                guard let snapshot = snapshot else { return }
-//                if !snapshot.documents.isEmpty {
-//                    for document in snapshot.documents {
-//                        if document.documentID.contains(person1) && document.documentID.contains(person2) {
-//                            let numberString = document.documentID.suffix(1)
-//                            guard let number = Int(numberString) else { return }
-//                            completion(number)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
-//    func updateGame(game: String, completion: @escaping () -> Void) {
-//        gamesCollectionRef.document(game).setData(["nothing": "nothing"]) { (error) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            } else {
-//                print("\(game) has begun!")
-//            }
-//        }
-//    }
     
     func resetGame(completion: @escaping () -> Void) {
         updateFirestoreRefs()
@@ -243,28 +144,6 @@ class Network: NSObject {
         })
     }
     
-//    func updateSymbol(game: String, symbol: String, name: String, completion: @escaping () -> Void) {
-//        gamesCollectionRef.document(game).collection("symbols").getDocuments(completion: { (snapshot, error) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            } else {
-//                guard let snapshot = snapshot else { return }
-//                guard let document = snapshot.documents.first else { return }
-//                let documentID = document.documentID
-//                self.gamesCollectionRef.document(game).collection("symbols").document(documentID).updateData([symbol: name], completion: { (error) in
-//                    if let error = error {
-//                        print(error.localizedDescription)
-//                    } else {
-//                        print("\(name) is now \(symbol)")
-////                        self.currentGameSymbols[symbol] = name
-////                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CurrentGameSymbolsUpdated"), object: nil)
-//                        completion()
-//                    }
-//                })
-//            }
-//        })
-//    }
-    
     func setGreenToZero() {
         colorsCollectionRef.document("green").updateData(["name": "0"]) { (error) in
             if let error = error {
@@ -305,8 +184,4 @@ class Network: NSObject {
             }
         }
     }
-    
-//    func updateImageForPerson(_ imageURL: String, completionHandler: @escaping () -> Void) {
-//        let storageRef = Storage.storage().reference(forURL: imageURL)
-//    }
 }
