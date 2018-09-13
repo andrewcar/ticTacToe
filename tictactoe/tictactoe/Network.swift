@@ -122,6 +122,7 @@ class Network: NSObject {
                         colors.append(Color.black)
                     }
                     self.set(colors: colors)
+                    completion()
                 })
             }
         }
